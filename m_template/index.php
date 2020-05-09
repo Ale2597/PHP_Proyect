@@ -1,0 +1,163 @@
+<!doctype html>
+<!-- Website Template by freewebsitetemplates.com -->
+<?php 
+//Empezar Sesion.
+session_start();
+?>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Becas UPRA</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
+	<script type="text/javascript" src="js/mobile.js"></script>
+</head>
+<body>
+<div id="header">
+    <a href="index.html" class="logo">
+        <img src="images/logo.jpg" alt="">
+    </a>
+    <ul id="navigation">
+        <li class="selected">
+            <a href="index.html">home</a>
+        </li>
+        <li>
+            <a href="about.html">about</a>
+        </li>
+        <li>
+            <a href="gallery.html">gallery</a>
+        </li>
+        <li>
+            <a href="blog.html">blog</a>
+        </li>
+        <li>
+            <a href="contact.html">contact</a>
+        </li>
+    </ul>
+</div>
+<div id="body">
+<?php
+if($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+    if( (!empty($_POST['email'])) && (!empty($_POST['password'])) ) 
+		{ //conectarme a ver si existe usuario    
+			if(include_once('conectiondb.php')) // Conectarse al servidor SQL
+	   		{
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+
+//                echo "<br><h3>Email: $email</h3>";
+//                echo "<h3>Password: $password</h3><br>";
+                $query = "SELECT * FROM usuarios2 WHERE email = '$email'  AND pass = '$password'";
+                $r = mysqli_query($dbc, $query);
+                
+                $query2 = "SELECT * FROM admins WHERE email = '$email'  AND pass = '$password'";
+                $r2 = mysqli_query($dbc, $query2);
+                
+                $query3 = "SELECT nombre FROM estudiante2 WHERE email = '$email'";
+                $r3 = mysqli_query($dbc, $query3);
+                $row3 = mysqli_fetch_array($r3);
+                
+                if ($row = mysqli_fetch_array($r))
+                {
+                    if ( (strtolower($_POST['email']) == $row['email']) && ($_POST['password'] ==$row['pass']) && ($row['status'] == 'activo') )
+                    { // El usuario existe en la tabla de usuarios2.
+      
+                        $_SESSION['user_id'] = $row['user_id'];
+                        $_SESSION['nombre_user'] = $row3['nombre'];
+                        header('Location: user/index.php');
+                        exit();
+                    }
+                    else{
+                        print '<h3>Su cuenta aparenta estar inactiva! Por favor contacte un administrador para restaurar el acceso a su cuenta.<br><br><a href="index.php"> Login </a></h3>';
+                    }
+                }
+                else if($row2 = mysqli_fetch_array($r2))
+                {
+                    if ( (strtolower($_POST['email']) == $row2['email']) && ($_POST['password'] ==$row2['pass']) && ($row2['status'] == 'activo') )
+                    {//El usuario es admin.
+                        
+                        $_SESSION['nombre_admin'] = $row2['nombre'];
+                        $_SESSION['admin_id'] = $row2['admin_id'];
+                        header('Location: admin/index.php');
+                        exit();
+                    }
+                }
+                else 
+                { // Usuario no existe en la tabla
+
+                    print '<h3>El email y/o password entrados no concuerdan con nuestros archivos!<br><br>Vuelva a intentarlo.<br><a href="index.php"> Login </a></h3>';
+
+                }
+			}
+			else
+				print'<p> No se pudo conectar a servidor MYSQL</p>';
+		
+        }
+        else
+        {
+            // No entró uno de los campos
+
+            print '<p>Asegúrese de entrar su username y password. Vuelva a intentarlo...<br /><a href="index.php"> Login </a></p>';
+
+
+
+        }
+} 
+else // No llegó por un submit, hay que presentar el formulario
+{  		
+    print '<div id="container"><center>
+    <form action="index.php" method="post">
+    <table id="table3">
+    <tr>
+     <td colspan="2" align="center"><h3> LOGIN </h3></td
+    </tr>
+    <tr>
+    <td align="right">Email: </td>
+    <td align="left">
+    <input type="email" name="email" size="20" required/>
+    <span class="error">*</span>
+    </td>
+    </tr>
+    <tr>
+     <td align="right">Password: </td>
+    <td align="left">
+    <input type="password" name="password" size="20" required/>
+    <span class="error">*</span>
+    </td>
+    </tr>
+    <tr>
+     <td colspan="2" align="center">
+     <input type="submit" name="submit" value="Login" /></td>
+    </tr>
+    <tr>
+     <td colspan="2" align="center">
+     <a href="register.php"> Estudiante? Regístrate! </a></td>
+    </tr>
+    </table>
+    </form></center></div>';
+}		
+?>
+</div>
+<div id="footer">
+    <div>
+        <p>&copy; 2023 by Mustacchio. All rights reserved.</p>
+        <ul>
+            <li>
+                <a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
+            </li>
+            <li>
+                <a href="http://freewebsitetemplates.com/go/facebook/" id="facebook">facebook</a>
+            </li>
+            <li>
+                <a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">googleplus</a>
+            </li>
+            <li>
+                <a href="http://pinterest.com/fwtemplates/" id="pinterest">pinterest</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
