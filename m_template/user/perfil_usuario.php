@@ -46,7 +46,7 @@ session_start();
 				<span>Our website templates are created with</span>
 				<span>inspiration, checked for quality and originality</span>
 				<span>and meticulously sliced and coded.</span>
-				<a href="#" class="more">read more</a>
+				<a href="editar_usuario.php?user_id=<?php echo $_SESSION['user_id'] ?>" class="more">Editar Mi Perfil</a>
 			</div>
 		</div>
 		<ul>
