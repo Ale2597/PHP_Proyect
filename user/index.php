@@ -15,6 +15,9 @@ session_start();
 	<script type="text/javascript" src="../js/mobile.js"></script>
 </head>
 <body>
+<?php 
+	
+?>
 	<div id="header">
 		<a href="index.html" class="logo">
 			<img src="../images/logo.jpg" alt="">
@@ -42,7 +45,7 @@ session_start();
 			<img src="../images/the-beacon.jpg" alt="">
 			<div>
 			    <h2> Welcome User <?php echo $_SESSION['nombre_user']; ?>! </h2>
-				<h2>the beacon to all mankind</h2>
+				<h2></h2>
 				<span>Our website templates are created with</span>
 				<span>inspiration, checked for quality and originality</span>
 				<span>and meticulously sliced and coded.</span>
