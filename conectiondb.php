@@ -9,7 +9,8 @@
 //    $password = 'hirverme840$cuta';
     $password = '';
 //    $db = 'hirverme_db';
-    $db = 'programahonor';
+//    $db = 'programahonor';
+    $db = 'becasphp_final';
             
     $dbc = @mysqli_connect($host, $username, $password, $db)
             OR die('No se pudo conectar a MySQL: '.mysqli_connect_error());

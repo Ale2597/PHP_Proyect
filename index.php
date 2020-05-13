@@ -101,13 +101,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 //                echo "<br><h3>Email: $email</h3>";
 //                echo "<h3>Password: $password</h3><br>";
-                $query = "SELECT * FROM usuarios2 WHERE email = '$email'  AND pass = '$password'";
+                $query = "SELECT * FROM usuarios WHERE email = '$email'  AND pass = '$password'";
                 $r = mysqli_query($dbc, $query);
                 
                 $query2 = "SELECT * FROM admins WHERE email = '$email'  AND pass = '$password'";
                 $r2 = mysqli_query($dbc, $query2);
                 
-                $query3 = "SELECT nombre FROM estudiante2 WHERE email = '$email'";
+                $query3 = "SELECT nombre FROM estudiantes WHERE email = '$email'";
                 $r3 = mysqli_query($dbc, $query3);
                 $row3 = mysqli_fetch_array($r3);
                 

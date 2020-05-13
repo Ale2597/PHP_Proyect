@@ -13,6 +13,26 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/mobile.css" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="../js/mobile.js"></script>
+	<style>
+        #table1{
+            background-color: azure;
+            border-bottom: collapse;
+            width: auto;
+        }
+
+        #table_header{
+            text-align:center;
+            background-color:darkkhaki;
+        }
+
+        #table_rows{
+            text-align:center;
+        }
+        td{
+            width: 300px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
 	<div id="header">
@@ -49,6 +69,7 @@ session_start();
 				<a href="#" class="more">read more</a>
 			</div>
 		</div>
+<!--
 		<ul>
 			<li>
 				<a href="#">
@@ -69,6 +90,40 @@ session_start();
 				</a>
 			</li>
 		</ul>
+-->
+        <div>
+        <?php 
+            $query = "SELECT *
+            FROM solicitud
+            WHERE user_id={$_SESSION['user_id']}";
+
+            if($r = mysqli_query($dbc, $query))
+            {
+                print"<div><center><table id='table1'>";
+                print"<h2>Mis Solicitudes</h2>";
+                print"<tr id='table_header'>
+                        <td><b>Nombre Actividad</b></td>
+                        <td><b>Costo</b></td>
+                        <td><b>Fecha de Actividad</b></td>
+                        <td><b>Fecha de Solicitud</b></td>
+                        <td><b>Status</b></td>
+                        </tr>";
+
+                while($row=mysqli_fetch_array($r))
+                {
+                    print"<tr id='table_rows'>
+                        <td>$row[actividad]</td>
+                        <td>$row[costo]</td>
+                        <td>$row[fecha_actividad]</td>
+                        <td>$row[fecha_sol]</td>
+                        <td>$row[status]</td>
+                        </tr>";
+                }
+
+                print"</table></center></div><br>";
+            }
+        ?>
+        </div>
 	</div>
 	<div id="footer">
 		<div>

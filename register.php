@@ -73,6 +73,7 @@ session_start();
     <a href="index.html" class="logo">
         <img src="images/logo.jpg" alt="">
     </a>
+<!--
     <ul id="navigation">
         <li class="selected">
             <a href="index.html">home</a>
@@ -90,6 +91,7 @@ session_start();
             <a href="contact.html">contact</a>
         </li>
     </ul>
+-->
 </div>
 <div id="body">
 <?php
@@ -107,7 +109,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 //            echo "<br><h3>Email: $email</h3>";
 //            echo "<h3>Password: $password</h3><br>";
             
-            $query = "SELECT * FROM usuarios2 WHERE email = '$email'  AND pass = '$password'";
+            $query = "SELECT * FROM usuarios WHERE email = '$email'  AND pass = '$password'";
             $r = mysqli_query($dbc, $query);
             
             if ($row = mysqli_fetch_array($r))
@@ -126,7 +128,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 else 
                 { // Usuario NO existe en tabla usuarios2.
 
-                    $query2 = "SELECT * FROM estudiante2 WHERE email = '$email'";
+                    $query2 = "SELECT * FROM estudiantes WHERE email = '$email'";
                         $r2 = mysqli_query($dbc, $query2);
             
                         if ($row2 = mysqli_fetch_array($r2))
@@ -146,7 +148,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
                                     //Query para insertar usuario.
-                                    $query3 = "INSERT INTO usuarios2
+                                    $query3 = "INSERT INTO usuarios
                                                 (email, pass, telefono, status)
                                                 VALUES ('".$email."', '".$password."', '".$telefono."', '".$status."')";
 
@@ -159,7 +161,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                                     {
                                        print '<h3>El usuario ha sido insertado con éxito.</h3>';
                                         
-                                        $query4 = "SELECT * FROM usuarios2 WHERE email = '$email'                                                         AND pass = '$password'";
+                                        $query4 = "SELECT * FROM usuarios WHERE email = '$email'                                                         AND pass = '$password'";
                                         $r4 = mysqli_query($dbc, $query4);
             
                                         if ($row4 = mysqli_fetch_array($r4))
@@ -189,8 +191,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                             {//Usuario no es estudiante (NO existe en tabla estudiante2)
                                 print '<h3>Solo estudiantes pueden registrarse!</h3>';
                                 print '<h3>Si es estudiante, asegúrese entrar su email correctamente. Vuelva a intentarlo...<br /><a href="register.php" class="link_a"> Registrar </a></h3>';
-                                print '<h3>Para ver los estudiantes de honor como visitante oprima
-                                <a class="link_a" href="estudiantes.php">Aquí</a></h3>';
                             }
 
                 }
