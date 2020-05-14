@@ -107,6 +107,7 @@ session_start();
                         <td><b>Fecha de Actividad</b></td>
                         <td><b>Fecha de Solicitud</b></td>
                         <td><b>Status</b></td>
+                        <td><b>Editar</b></td>
                         </tr>";
 
                 while($row=mysqli_fetch_array($r))
@@ -116,6 +117,7 @@ session_start();
                         <td>$row[costo]</td>
                         <td>$row[fecha_actividad]</td>
                         <td>$row[fecha_sol]</td>
+                        <td>$row[status]</td>
                         <td>$row[status]</td>
                         </tr>";
                 }
