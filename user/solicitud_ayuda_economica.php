@@ -17,7 +17,7 @@ session_start();
 <body>
 	<div id="header">
 		<a href="index.html" class="logo">
-			<img src="../images/logo.jpg" alt="">
+		<img src="../images/Logo_icon.png" alt="">
 		</a>
 		<ul id="navigation">
 			<li class="selected">
