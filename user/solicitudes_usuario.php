@@ -102,7 +102,7 @@ session_start();
                 print"<div><center><table id='table1'>";
                 print"<h2>Mis Solicitudes</h2>";
                 print"<tr id='table_header'>
-                        <td><b>Nombre Actividad</b></td>
+                        <td><b>Nombre de Actividad</b></td>
                         <td><b>Costo</b></td>
                         <td><b>Fecha de Actividad</b></td>
                         <td><b>Fecha de Solicitud</b></td>
@@ -118,7 +118,8 @@ session_start();
                         <td>$row[fecha_actividad]</td>
                         <td>$row[fecha_sol]</td>
                         <td>$row[status]</td>
-                        <td>$row[status]</td>
+                        <td><a href=\"editar_solicitud.php?sol_id={$row['sol_id']}\">
+                        <img width='25px' height='25px' alt=\"Edit\" src=\"../images/edit_icon.png\"></a></td>
                         </tr>";
                 }
 

@@ -114,7 +114,7 @@ session_start();
                         <td>$row[pass]</td>
                         <td>$row[tel]</td>
                         <td>$row[status]</td>
-                        <td><a href='editar_usuario.php'> <img src='../images/edit_icon.png' width='20' height='20'></a></td>
+                        <td><a href='editar_usuario.php?user_id={$_SESSION['user_id']}'> <img src='../images/edit_icon.png' width='20' height='20'></a></td>
                         </tr>";
                 }
 
