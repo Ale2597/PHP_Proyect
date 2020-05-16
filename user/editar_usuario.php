@@ -61,37 +61,32 @@ if(isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id']))
         <tr>
           <td align="right"><label for="user_id">User_ID: </label></td>
           <td align="left"><label for="user_id"></label>'.$row['user_id'].'
-          <span class="error">*</span>
           </td>
         </tr>
         
         <tr>
           <td align="right"><label for="email">Email: </label></td>
           <td align="left"><label for="email"></label>'.$row['email'].'
-          <span class="error">*</span>
           </td>
         </tr>
         
         <tr>
           <td align="right"><label for="pass">Password: </label></td>
           <td align="left">
-          <input type="pass" name="password" id="pass"  value="'.$row['pass'].'" required/> 
-          <span class="error">*</span>
+          <input type="pass" name="pass" id="pass"  value="'.$row['pass'].'" required/> 
           </td>
         </tr>
         
         <tr>
           <td align="right"><label for="tel">Teléfono: </label></td>
           <td align="left">
-          <input type="tel" name="tel" id="telefono" value="'.$row['tel'].'"/> 
-          <span class="error">*</span>
+          <input type="tel" name="tel" id="tel" value="'.$row['tel'].'"/> 
           </td>
         </tr>
         
         <tr>
           <td align="right"><label for="status">Status: </label></td>
           <td align="left"><label for="status"></label>'.$row['status'].'
-          <span class="error">*</span>
           </td>
         </tr>
 
