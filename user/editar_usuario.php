@@ -21,7 +21,7 @@ session_start();
     </a>
     <ul id="navigation">
         <li class="selected">
-            <a href="index.php">Home</a>
+            <a href="index.php">Inicio</a>
         </li>
         <li>
             <a href="perfil_usuario.php">Perfil</a>
@@ -33,6 +33,9 @@ session_start();
             <a href="solicitudes_usuario.php">Mis Solicitudes</a>
         </li>
         <li>
+            <a href="index.php">Creadores</a>
+        </li>
+        <li>
             <a href="../logout.php">Logout</a>
         </li>
     </ul>
@@ -40,17 +43,11 @@ session_start();
 <div id="body">
 <?php
     
-print '<div id="window">
-            <div id="profile">
-                <h3> Bienvenido usuario  '. $_SESSION['nombre_user'].'! </h3>
-            </div>
-       </div>';
-    
-if(isset($_GET['user_id']) && is_numeric($_GET['user_id']))
+if(isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id']))
 {
-   $query = "SELECT email, pass, telefono
-			FROM usuarios2
-			WHERE user_id={$_GET['user_id']}";
+   $query = "SELECT *
+			 FROM usuarios
+			 WHERE user_id={$_SESSION['user_id']}";
     
    
    if ($r = mysqli_query($dbc, $query))
@@ -60,6 +57,13 @@ if(isset($_GET['user_id']) && is_numeric($_GET['user_id']))
       print '<div><center><h2>Editar Cuenta Usuario</h2>
       <form action="editar_usuario.php" method="post">
       <table id="table2" width="349" border="0">
+    
+        <tr>
+          <td align="right"><label for="user_id">User_ID: </label></td>
+          <td align="left"><label for="user_id"></label>'.$row['user_id'].'
+          <span class="error">*</span>
+          </td>
+        </tr>
         
         <tr>
           <td align="right"><label for="email">Email: </label></td>
@@ -69,17 +73,24 @@ if(isset($_GET['user_id']) && is_numeric($_GET['user_id']))
         </tr>
         
         <tr>
-          <td align="right"><label for="password">Password: </label></td>
+          <td align="right"><label for="pass">Password: </label></td>
           <td align="left">
-          <input type="password" name="password" id="password"  value="'.$row['pass'].'" required/> 
+          <input type="pass" name="password" id="pass"  value="'.$row['pass'].'" required/> 
           <span class="error">*</span>
           </td>
         </tr>
         
         <tr>
-          <td align="right"><label for="telefono">Teléfono: </label></td>
+          <td align="right"><label for="tel">Teléfono: </label></td>
           <td align="left">
-          <input type="tel" name="telefono" id="telefono" value="'.$row['telefono'].'"/> 
+          <input type="tel" name="tel" id="telefono" value="'.$row['tel'].'"/> 
+          <span class="error">*</span>
+          </td>
+        </tr>
+        
+        <tr>
+          <td align="right"><label for="status">Status: </label></td>
+          <td align="left"><label for="status"></label>'.$row['status'].'
           <span class="error">*</span>
           </td>
         </tr>
@@ -87,7 +98,7 @@ if(isset($_GET['user_id']) && is_numeric($_GET['user_id']))
         <tr>
         <td colspan="2" align="center">
           <input type="submit" name="Editar" id="Editar" value="Editar" />
-		  <input type="hidden" name="user_id" value="'.$_GET['user_id'].'" />
+		  <input type="hidden" name="user_id" value="'.$_SESSION['user_id'].'" />
         </td>
         </tr>
     </table>
@@ -101,10 +112,10 @@ if(isset($_GET['user_id']) && is_numeric($_GET['user_id']))
 }
 else if(isset($_POST['user_id']) && is_numeric($_POST['user_id']))
 {
-	  $password = $_POST['password'];
-	  $telefono = $_POST['telefono'];   
+	  $password = $_POST['pass'];
+	  $telefono = $_POST['tel'];   
 
-      $query = "UPDATE usuarios2 SET pass=$password, telefono=$telefono
+      $query = "UPDATE usuarios SET pass=$password, tel=$telefono
 		        WHERE user_id={$_POST['user_id']}";
 
 	  if(mysqli_query($dbc, $query)) //Cambiar para usar script de alert y open window (js).

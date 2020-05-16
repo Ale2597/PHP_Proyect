@@ -38,7 +38,7 @@ session_start();
 <body>
 	<div id="header">
 		<a href="index.html" class="logo">
-			<img src="../images/logo.jpg" alt="">
+			<img src="../images/Logo_icon.PNG" alt="">
 		</a>
 		<ul id="navigation">
 			<li>
@@ -114,7 +114,7 @@ session_start();
                         <td>$row[pass]</td>
                         <td>$row[tel]</td>
                         <td>$row[status]</td>
-                        <td><a href='index.php'> <img src='../images/edit_icon.png' width='20' height='20'></a></td>
+                        <td><a href='editar_usuario.php'> <img src='../images/edit_icon.png' width='20' height='20'></a></td>
                         </tr>";
                 }
 
