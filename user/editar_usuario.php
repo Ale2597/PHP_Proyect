@@ -20,10 +20,10 @@ session_start();
         <img src="../images/logo.jpg" alt="">
     </a>
     <ul id="navigation">
-        <li class="selected">
+        <li>
             <a href="index.php">Inicio</a>
         </li>
-        <li>
+        <li class="selected">
             <a href="perfil_usuario.php">Perfil</a>
         </li>
         <li>
