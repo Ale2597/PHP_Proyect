@@ -13,6 +13,27 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/mobile.css" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="../js/mobile.js"></script>
+	
+    <style>
+        #table1{
+            background-color: azure;
+            border-bottom: collapse;
+            width: auto;
+        }
+
+        #table_header{
+            text-align:center;
+            background-color:darkkhaki;
+        }
+
+        #table_rows{
+            text-align:center;
+        }
+        td{
+            width: 300px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
 	<div id="header">
@@ -20,10 +41,10 @@ session_start();
 			<img src="../images/logo.jpg" alt="">
 		</a>
 		<ul id="navigation">
-			<li class="selected">
-				<a href="index.php">Home</a>
-			</li>
 			<li>
+				<a href="index.php">Inicio</a>
+			</li>
+			<li class="selected">
 				<a href="perfil_usuario.php">Perfil</a>
 			</li>
 			<li>
@@ -33,22 +54,18 @@ session_start();
 				<a href="solicitudes_usuario.php">Mis Solicitudes</a>
 			</li>
 			<li>
+				<a href="index.php">Creadores</a>
+			</li>
+			<li>
 				<a href="../logout.php">Logout</a>
 			</li>
 		</ul>
+		
+		<h1>Perfil del Usario</h1>
 	</div>
 	<div id="body">
-		<div id="featured">
-			<img src="../images/the-beacon.jpg" alt="">
-			<div>
-			    <h2> Welcome User <?php echo $_SESSION['nombre_user']; ?>! </h2>
-				<h2>the beacon to all mankind</h2>
-				<span>Our website templates are created with</span>
-				<span>inspiration, checked for quality and originality</span>
-				<span>and meticulously sliced and coded.</span>
-				<a href="editar_usuario.php?user_id=<?php echo $_SESSION['user_id'] ?>" class="more">Editar Mi Perfil</a>
-			</div>
-		</div>
+		
+<!--
 		<ul>
 			<li>
 				<a href="#">
@@ -69,7 +86,43 @@ session_start();
 				</a>
 			</li>
 		</ul>
-	</div>
+-->
+
+
+    <?php 
+            $query = "SELECT *
+            FROM usuarios
+            WHERE user_id={$_SESSION['user_id']}";
+
+            if($r = mysqli_query($dbc, $query))
+            {
+                print"<div><center><table id='table1'>";
+                print"<tr id='table_header'>
+                        <td><b>Número de Usuario</b></td>
+                        <td><b>Email</b></td>
+                        <td><b>Contraseña</b></td>
+                        <td><b>Teléfono</b></td>
+                        <td><b>Status</b></td>
+                        <td><b>Editar</b></td>
+                        </tr>";
+
+                while($row=mysqli_fetch_array($r))
+                {
+                    print"<tr id='table_rows'>
+                        <td>$row[user_id]</td>
+                        <td>$row[email]</td>
+                        <td>$row[pass]</td>
+                        <td>$row[tel]</td>
+                        <td>$row[status]</td>
+                        <td><a href='index.php'> <img src='../images/edit_icon.png' width='20' height='20'></a></td>
+                        </tr>";
+                }
+
+                print"</table></center></div><br>";
+            }
+        ?>
+        </div>
+	
 	<div id="footer">
 		<div>
 			<p>&copy; 2023 by Mustacchio. All rights reserved.</p>
