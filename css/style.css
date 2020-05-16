@@ -53,7 +53,7 @@ p a:hover {
 }
 #header a.logo img {
 	border: 0;
-	display: block;
+	display:flex;
 	margin: 0;
 	padding: 0;
 }
@@ -172,6 +172,7 @@ p a:hover {
 #body div ul li .figure:hover img {
 	opacity: 1;
 }
+
 #body div ul li div {
 	float: left;
 	margin: 0;
@@ -249,6 +250,7 @@ p a:hover {
 	margin: 7px 0;
 	padding: 12px 27px;
 }
+/*
 #body #featured div a {
 	background: #0ba39c;
 	color: #fff;
@@ -263,6 +265,7 @@ p a:hover {
 #body #featured div a:hover {
 	background: #1fc3bc;
 }
+*/
 #body > ul {
 	margin: 0 auto;
 	overflow: hidden;
@@ -276,7 +279,7 @@ p a:hover {
 	padding: 0;
 	width: 300px;
 }
-#body > ul li a {
+#body > ul li {
 	color: #000;
 	display: block;
 	font-family: poller_oneregular;
@@ -288,7 +291,7 @@ p a:hover {
 	text-decoration: none;
 	text-transform: uppercase;
 }
-#body > ul li a img {
+#body > ul li img {
 	border: 2px solid #1a1a1a;
 	display: block;
 	margin: 0;
@@ -296,10 +299,10 @@ p a:hover {
 	opacity: .8;
 	transition: 0.5s ease-in-out;
 }
-#body > ul li a:hover img {
+#body > ul li:hover img {
 	opacity: 1;
 }
-#body > ul li a span {
+#body > ul li span {
 	display: block;
 	margin: 0;
 	padding: 33px 0 0;
@@ -307,11 +310,12 @@ p a:hover {
 #body form {
 	margin: 0 auto;
 	padding: 24px 0 0;
-	width: 620px;
+	width: 520px;
 }
+/*
 #body form input, #body form textarea {
-	border: 2px solid #252525;
-	color: #252525;
+	border: 2px solid lightgray;
+	color: red;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 15px;
 	font-weight: normal;
@@ -325,7 +329,7 @@ p a:hover {
 	height: 175px;
 	overflow: auto;
 	resize: none;
-}
+}*/
 #body form #send {
 	background: #252525;
 	color: #fff;
@@ -407,4 +411,69 @@ p a:hover {
 }
 #footer div ul li #pinterest:hover {
 	background-position: -44px -132px;
+}
+
+/*---- New login css -----*/
+.input_box{
+       padding:10px;
+       font-size: 18px;
+       border: 1px solid gray;
+       border-radius: 2px;
+    }
+    /*Letter size*/
+    .td_letter{
+        font-size:18px;
+        
+    }
+    /*Button style*/
+    .b1{
+    color:white;
+    background-color:blue;
+    font-size: 20px;
+    background-image: linear-gradient(to bottom right, aqua, gray);
+    padding: 9px;
+    border: none;
+    border-radius: 3px;
+    }
+    .b1:hover{
+    color:white;
+    background-color:darkgray;
+    background-image: linear-gradient(to bottom right, aqua, black);
+    padding: 9px;
+    border: none;
+    border-radius: 3px;
+    }
+    /* a LINKS*/
+    .link_a{
+    color: #252525;
+	display: inline-block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	padding: 0 0 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+    }
+    .link_a:hover{
+    color: #0ba39c;
+	display: inline-block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	padding: 0 0 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+		}
+		
+	.new_logo{
+		background-image: url(".../images/Logo_icon.png");
+	}
+/*Table modification*/
+table td{
+    padding:5px;
+}
+table h3{
+    color:white;
 }
