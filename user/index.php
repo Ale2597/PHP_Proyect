@@ -20,11 +20,11 @@ session_start();
 ?>
 	<div id="header">
 		<a href="index.html" class="logo">
-			<img src="../images/logo.jpg" alt="">
+			<img src="../images/Logo_icon.PNG" alt="">
 		</a>
 		<ul id="navigation">
 			<li class="selected">
-				<a href="index.php">Home</a>
+				<a href="index.php">Inicio</a>
 			</li>
 			<li>
 				<a href="perfil_usuario.php">Perfil</a>
@@ -35,6 +35,9 @@ session_start();
 			<li>
 				<a href="solicitudes_usuario.php">Mis Solicitudes</a>
 			</li>
+            <li>
+				<a href="index.php">Creadores</a>
+			</li>
 			<li>
 				<a href="../logout.php">Logout</a>
 			</li>
@@ -42,37 +45,41 @@ session_start();
 	</div>
 	<div id="body">
 		<div id="featured">
-			<img src="../images/the-beacon.jpg" alt="">
+			<img src="../images/logo_UPRA.JPEG" alt="">
 			<div>
-			    <h2> Welcome User <?php echo $_SESSION['nombre_user']; ?>! </h2>
+			    <h2> ¡Bienvenido <?php echo $_SESSION['nombre_user']; ?>! </h2>
 				<h2></h2>
-				<span>Our website templates are created with</span>
-				<span>inspiration, checked for quality and originality</span>
-				<span>and meticulously sliced and coded.</span>
-				<a href="#" class="more">read more</a>
+				<span>En esta página podrás ver y solicitar</span>
+				<span>distintas becas y ayudas disponibles</span>
+				<span>para fomentar tu dessarrollo educacional.</span>
+				<a href="solicitud_ayuda_economica.php" class="more">Buscar Ahora</a>
 			</div>
 		</div>
-		<ul>
-			<li>
-				<a href="#">
-					<img src="../images/the-father.jpg" alt="">
-					<span>Hiram Vera</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<img src="../images/the-actor.jpg" alt="">
-					<span>Alejandro Zeno</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<img src="../images/the-nerd.jpg" alt="">
-					<span>Gabriel Ferrer</span>
-				</a>
-			</li>
-		</ul>
+<!--
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="../images/the-father.jpg" alt="">
+                    <span>Hiram Vera</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../images/the-actor.jpg" alt="">
+                    <span>Alejandro Zeno</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../images/the-nerd.jpg" alt="">
+                    <span>Gabriel Ferrer</span>
+                </a>
+            </li>
+        </ul>
+-->
 	</div>
+	
+	<br><br><br><br>
 	<div id="footer">
 		<div>
 			<p>&copy; 2023 by Mustacchio. All rights reserved.</p>
