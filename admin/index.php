@@ -1,6 +1,7 @@
 <!doctype html>
 <!-- Website Template by freewebsitetemplates.com -->
 <?php 
+include('../conectiondb.php');
 //Empezar Sesion.
 session_start();
 ?>
@@ -14,13 +15,16 @@ session_start();
 	<script type="text/javascript" src="../js/mobile.js"></script>
 </head>
 <body>
+<?php 
+	
+?>
 	<div id="header">
 		<a href="index.html" class="logo">
-			<img src="../images/logo.jpg" alt="">
+			<img src="../images/Logo_icon.PNG" alt="">
 		</a>
 		<ul id="navigation">
-			<li class="selected">
-				<a href="index.php">home</a>
+			 <li class="selected">
+				<a href="index.php">Inicio</a>
 			</li>
 			<li>
 				<a href="solicitantes.php">Solicitantes</a>
@@ -41,37 +45,39 @@ session_start();
 	</div>
 	<div id="body">
 		<div id="featured">
-			<img src="../images/the-beacon.jpg" alt="">
+			<img src="../images/logo_UPRA.JPEG" alt="">
 			<div>
-			    <h2> Welcome Admin <?php echo $_SESSION['nombre_admin']; ?>! </h2>
-				<h2>the beacon to all mankind</h2>
-				<span>Our website templates are created with</span>
-				<span>inspiration, checked for quality and originality</span>
-				<span>and meticulously sliced and coded.</span>
-				<a href="#" class="more">read more</a>
+			    <h2>¡Bienvenido al Panel de Administración <?php echo $_SESSION['nombre_admin']; ?> !</h2>
+				<span>Administra las solicitudes, becas,</span>
+				<span>y otorgación de estas. Ademas,</span>
+				<span>crea reportes de estados.</span>
 			</div>
 		</div>
-		<ul>
-			<li>
-				<a href="#">
-					<img src="../images/the-father.jpg" alt="">
-					<span>Gabriel Ferrer</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<img src="../images/the-actor.jpg" alt="">
-					<span>Hiram Vera</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<img src="../images/the-nerd.jpg" alt="">
-					<span>Alejandro Zeno</span>
-				</a>
-			</li>
-		</ul>
+<!--
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="../images/the-father.jpg" alt="">
+                    <span>Hiram Vera</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../images/the-actor.jpg" alt="">
+                    <span>Alejandro Zeno</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../images/the-nerd.jpg" alt="">
+                    <span>Gabriel Ferrer</span>
+                </a>
+            </li>
+        </ul>
+-->
 	</div>
+	
+	<br><br><br><br>
 	<div id="footer">
 		<div>
 			<p>&copy; 2023 by Mustacchio. All rights reserved.</p>
