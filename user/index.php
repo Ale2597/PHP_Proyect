@@ -60,7 +60,7 @@ session_start();
                     <a href="solicitudes_usuario.php">Mis Solicitudes</a>
                 </li>
                 <li>
-                    <a href="index.php">Creadores</a>
+                    <a href="creadores.php">Creadores</a>
                 </li>
                 <li>
                     <a href="../logout.php">Logout</a>
@@ -80,28 +80,6 @@ session_start();
                     <a class="link_a" href="solicitud_ayuda_economica.php" class="more">Buscar Ahora</a>
                 </div>
             </div>
-<!--
-            <ul>
-                <li>
-                    <a href="#">
-                        <img src="../images/the-father.jpg" alt="">
-                        <span>Hiram Vera</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../images/the-actor.jpg" alt="">
-                        <span>Alejandro Zeno</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../images/the-nerd.jpg" alt="">
-                        <span>Gabriel Ferrer</span>
-                    </a>
-                </li>
-            </ul>
--->
         </div>
 
         <br><br><br><br>

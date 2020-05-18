@@ -96,7 +96,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 
                 if ($row = mysqli_fetch_array($r))
                 {
-                    if ( (strtolower($_POST['email']) == $row['email']) && ($_POST['password'] ==$row['pass']) && ($row['status'] == 'Activo') )
+                    if ( (strtolower($_POST['email']) == $row['email']) && ($_POST['password'] ==$row['pass']) && ($row['status'] == 'activo') )
                     { // El usuario existe en la tabla de usuarios2.
       
                         $_SESSION['user_id'] = $row['user_id'];

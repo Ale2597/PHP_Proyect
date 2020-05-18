@@ -74,8 +74,8 @@ session_start();
             if(isset($_GET['beca_id']) && is_numeric($_GET['beca_id']))
             {
                 $query = "SELECT *
-            FROM becas
-            WHERE beca_id = {$_GET['beca_id']}";
+                          FROM (becas_departamento JOIN depto USING (depto_id)) RIGHT OUTER JOIN becas USING (beca_id)
+                          WHERE beca_id = {$_GET['beca_id']}";
 
 
                 if ($r = mysqli_query($dbc, $query))
@@ -131,7 +131,7 @@ session_start();
 
                     //Query para seleccionar departamentos.
                     $query2 = "SELECT d.depto_id, d.nombre_depto
-                   FROM depto d";
+                               FROM depto d";
 
                     $r2 = mysqli_query($dbc,$query2);
 
@@ -167,7 +167,7 @@ session_start();
                     <tr>
                     <td colspan="2" align="center">
                       <input class="b1" type="submit" name="Editar" id="Editar" value="Editar" />
-                      <input type="hidden" name="beca_id" value="'.$_SESSION['beca_id'].'" />
+                      <input type="hidden" name="beca_id" value="'.$_GET['beca_id'].'" />
                     </td>
                     </tr>
                 </table>
@@ -183,20 +183,25 @@ session_start();
 
             else if(isset($_POST['beca_id']) && is_numeric($_POST['beca_id']))
             {
-                $password = $_POST['pass'];
-                $telefono = $_POST['tel'];   
+                $nombre_beca = $_POST['nombre_beca'];
+                $fondo_beca = $_POST['fondo_beca'];
+                $tope_beca = $_POST['tope_beca'];
+                $balance_beca = $_POST['balance_beca'];
+                $promedio_min = $_POST['promedio_min'];
+                $status = $_POST['status'];   
 
-                $query = "UPDATE becas SET pass='$password', tel='$telefono'
-                        WHERE beca_id={$_POST['beca_id']}";
-
+                $query = "UPDATE becas SET nombre_beca= '$nombre_beca', fondo_beca = '$fondo_beca', tope_beca='$tope_beca', 
+                                           balance_beca='$balance_beca', promedio_min = '$promedio_min', status = '$status'
+                          WHERE beca_id={$_POST['beca_id']}";
+                
                 if(mysqli_query($dbc, $query))
                 {
-                    echo "<script>alert('La información del usuario ha sido actualizada exitosamente!')</script>";
-                    echo "<script>window.open('perfil_usuario.php','_self')</script>";
+                    echo "<script>alert('La beca ha sido actualizada exitosamente!')</script>";
+                    echo "<script>window.open('becas.php','_self')</script>";
                 }
 
                 else	  
-                    print '<h3 style="color:red;">No se pudo actualizar la información del usuario ya que ocurrió el error:<br />' . mysqli_error($dbc). '</h3>';
+                    print '<h3 style="color:red;">No se pudo actualizar la información de la beca ya que ocurrió el error:<br />' . mysqli_error($dbc). '</h3>';
             }
 
             else

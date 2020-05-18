@@ -53,6 +53,9 @@ session_start();
                     <a href="solicitudes_usuario.php">Mis Solicitudes</a>
                 </li>
                 <li>
+                    <a href="creadores.php">Creadores</a>
+                </li>
+                <li>
                     <a href="../logout.php">Logout</a>
                 </li>
             </ul>
@@ -88,9 +91,9 @@ session_start();
                         <td>$row[fecha_sol]</td>
                         <td>$row[status]</td>
                         <td><a class='link_a' href=\"editar_solicitud.php?sol_id={$row['sol_id']}\">
-												<img width='25px' height='25px' alt=\"Edit\" src=\"../images/edit_icon.png\"></a></td>
-												<td><a class='link_a' href=\"eliminar_solicitud.php?sol_id={$row['sol_id']}\">
-                        <img width='25px' height='25px' alt=\"Edit\" src=\"../images/close_icon.png\"></a></td>
+				            <img width='25px' height='25px' alt=\"Edit\" src=\"../images/edit_icon.png\"></a></td>
+				        <td><a class='link_a' href=\"eliminar_solicitud.php?sol_id={$row['sol_id']}\">
+                            <img width='25px' height='25px' alt=\"Edit\" src=\"../images/eliminar_icon.png\"></a></td>
                         </tr>";
                     }
 

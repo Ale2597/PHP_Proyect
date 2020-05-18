@@ -74,6 +74,9 @@ unset($_SESSION['c_date']);
                     <a href="solicitudes_usuario.php">Mis Solicitudes</a>
                 </li>
                 <li>
+                    <a href="creadores.php">Creadores</a>
+                </li>
+                <li>
                     <a href="../logout.php">Logout</a>
                 </li>
             </ul>
