@@ -58,16 +58,16 @@ CREATE TABLE `becas` (
 /*Data for the table `becas` */
 
 insert  into `becas`(`beca_id`,`nombre_beca`,`fondo_beca`,`tope_beca`,`balance_beca`,`promedio_min`,`status`) values 
-(1,'Beca Auxiliar',1000000,1000,1000000,0.00,'activa'),
-(2,'Beca Legislativa',200000,200,200000,0.00,'activa'),
-(3,'Beca FSEOG',1000000,1000,1000000,3.00,'activa'),
-(4,'Programa ACG',1000000,750,1000000,3.50,'activa'),
-(5,'Programa SMART',1000000,2000,1000000,3.50,'activa'),
-(6,'Beca Staying Alive',100000,750,100000,0.00,'activa'),
-(7,'Beca Educacional',150000,500,150000,0.00,'activa'),
-(8,'Beca CCOM',100000,300,100000,3.00,'activa'),
-(9,'Beca ADEM',100000,300,100000,3.00,'activa'),
-(10,'Beca BIOL',100000,300,100000,3.00,'activa');
+(1,'Beca Auxiliar',1000000,1000,1000000,0.00,'Activa'),
+(2,'Beca Legislativa',200000,200,200000,0.00,'Activa'),
+(3,'Beca FSEOG',1000000,1000,1000000,3.00,'Activa'),
+(4,'Programa ACG',1000000,750,1000000,3.50,'Activa'),
+(5,'Programa SMART',1000000,2000,1000000,3.50,'Activa'),
+(6,'Beca Staying Alive',100000,750,100000,0.00,'Activa'),
+(7,'Beca Educacional',150000,500,150000,0.00,'Activa'),
+(8,'Beca CCOM',100000,300,100000,3.00,'Activa'),
+(9,'Beca ADEM',100000,300,100000,3.00,'Activa'),
+(10,'Beca BIOL',100000,300,100000,3.00,'Activa');
 
 /*Table structure for table `becas_departamento` */
 
@@ -173,12 +173,12 @@ CREATE TABLE `solicitud` (
 /*Data for the table `solicitud` */
 
 insert  into `solicitud`(`sol_id`,`user_id`,`beca_id`,`fecha_sol`,`actividad`,`costo`,`fecha_actividad`,`status`,`cantidad_aprobada`) values 
-(1,4,8,'2020-05-01','Materiales',200,'2020-05-18','pendiente',NULL),
-(2,5,9,'2020-05-28','Matricula',300,'2020-05-18','pendiente',NULL),
-(3,2,10,'2020-05-07','Proroga',300,'2020-05-18','pendiente',NULL),
-(4,1,4,'2020-05-10','Tutorias',300,'2020-05-18','otorgada',NULL),
-(5,3,2,'2020-05-22','Taller de Señas',100,'2020-05-18','otorgada',NULL),
-(6,6,1,'2020-05-13','Interes Propio',1000,'2020-05-18','denegada',NULL);
+(1,4,8,'2020-05-01','Materiales',200,'2020-05-18','Pendiente',NULL),
+(2,5,9,'2020-05-28','Matricula',300,'2020-05-18','Pendiente',NULL),
+(3,2,10,'2020-05-07','Proroga',300,'2020-05-18','Pendiente',NULL),
+(4,1,4,'2020-05-10','Tutorias',300,'2020-05-18','Otorgada',NULL),
+(5,3,2,'2020-05-22','Taller de Señas',100,'2020-05-18','Otorgada',NULL),
+(6,6,1,'2020-05-13','Interes Propio',1000,'2020-05-18','Denegada',NULL);
 
 /*Table structure for table `usuarios` */
 
