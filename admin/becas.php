@@ -1,6 +1,7 @@
 <!doctype html>
 <!-- Website Template by freewebsitetemplates.com -->
 <?php 
+include('../conectiondb.php');
 //Empezar Sesion.
 session_start();
 ?>
@@ -12,20 +13,41 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/mobile.css" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="../js/mobile.js"></script>
+	
+    <style>
+        #table1{
+            background-color: azure;
+            border-bottom: collapse;
+            width: auto;
+        }
+
+        #table_header{
+            text-align:center;
+            background-color:darkkhaki;
+        }
+
+        #table_rows{
+            text-align:center;
+        }
+        td{
+            width: 300px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
 	<div id="header">
 		<a href="index.html" class="logo">
-			<img src="../images/logo.jpg" alt="">
+			<img src="../images/Logo_icon.PNG" alt="">
 		</a>
 		<ul id="navigation">
-			<li class="selected">
-				<a href="index.php">home</a>
+			 <li>
+				<a href="index.php">Inicio</a>
 			</li>
 			<li>
 				<a href="solicitantes.php">Solicitantes</a>
 			</li>
-			<li>
+			<li class="selected">
 				<a href="becas.php">Becas</a>
 			</li>
 			<li>
@@ -38,40 +60,78 @@ session_start();
 				<a href="../logout.php">Logout</a>
 			</li>
 		</ul>
+		
+		<h1>Administrar Becas</h1>
 	</div>
 	<div id="body">
-		<div id="featured">
-			<img src="../images/the-beacon.jpg" alt="">
-			<div>
-			    <h2> Welcome Admin <?php echo $_SESSION['nombre_admin']; ?>! </h2>
-				<h2>the beacon to all mankind</h2>
-				<span>Our website templates are created with</span>
-				<span>inspiration, checked for quality and originality</span>
-				<span>and meticulously sliced and coded.</span>
-				<a href="#" class="more">read more</a>
-			</div>
-		</div>
+		
+<!--
 		<ul>
 			<li>
 				<a href="#">
 					<img src="../images/the-father.jpg" alt="">
-					<span>Gabriel Ferrer</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<img src="../images/the-actor.jpg" alt="">
 					<span>Hiram Vera</span>
 				</a>
 			</li>
 			<li>
 				<a href="#">
-					<img src="../images/the-nerd.jpg" alt="">
+					<img src="../images/the-actor.jpg" alt="">
 					<span>Alejandro Zeno</span>
 				</a>
 			</li>
+			<li>
+				<a href="#">
+					<img src="../images/the-nerd.jpg" alt="">
+					<span>Gabriel Ferrer</span>
+				</a>
+			</li>
 		</ul>
-	</div>
+-->
+
+
+    <?php 
+            $query = "SELECT *
+                      FROM (becas_departamento JOIN depto USING (depto_id)) RIGHT OUTER JOIN becas USING (beca_id)";
+
+            if($r = mysqli_query($dbc, $query))
+            {
+                print"<div><center><table id='table1'>";
+                print"<tr id='table_header'>
+                        <td><b>Nombre Beca</b></td>
+                        <td><b>Fondo Total</b></td>
+                        <td><b>Límite a ser Otorgado</b></td>
+                        <td><b>Fondo Disponible</b></td>
+                        <td><b>Promedio Mínimo</b></td>
+                        <td><b>Departamento</b></td>
+                        <td><b>Status</b></td>
+                        </tr>";
+
+                while($row=mysqli_fetch_array($r))
+                {
+                    if(is_null($row["nombre_depto"]))
+                    {
+                        $nombre_depto = "N/A";
+                    }
+                    
+                    else
+                        $nombre_depto = $row["nombre_depto"];
+
+                    print"<tr id='table_rows'>
+                        <td>$row[nombre_beca]</td>
+                        <td>$row[fondo_beca]</td>
+                        <td>$row[tope_beca]</td>
+                        <td>$row[balance_beca]</td>
+                        <td>$row[promedio_min]</td>
+                        <td>".$nombre_depto."</td>
+                        <td>$row[status]</td>
+                        </tr>";
+                }
+
+                print"</table></center></div><br>";
+            }
+        ?>
+        </div>
+	
 	<div id="footer">
 		<div>
 			<p>&copy; 2023 by Mustacchio. All rights reserved.</p>
