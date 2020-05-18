@@ -39,7 +39,7 @@ session_start();
 <body>
 <div id="header">
     <a href="index.html" class="logo">
-        <img src="../images/logo.jpg" alt="">
+    <img src="../images/Logo_icon.png" alt="">
     </a>
     <ul id="navigation">
         <li>
@@ -89,14 +89,14 @@ if(isset($_GET['user_id']) && is_numeric($_GET['user_id']))
         <tr>
           <td align="right"><h3 for="pass">Password: </h3></td>
           <td align="left">
-          <h3><input type="pass" name="pass" id="pass"  value="'.$row['pass'].'" required/></h3> 
+          <h3><input style="padding:6px" type="pass" name="pass" id="pass"  value="'.$row['pass'].'" required/></h3> 
           </td>
         </tr>
         
         <tr>
           <td align="right"><h3 for="tel">Teléfono: </h3></td>
           <td align="left">
-          <h3><input type="tel" name="tel" id="tel" value="'.$row['tel'].'"/></h3> 
+          <h3><input style="padding:6px" type="tel" name="tel" id="tel" value="'.$row['tel'].'"/></h3> 
           </td>
         </tr>
 

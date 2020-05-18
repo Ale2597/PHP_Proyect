@@ -143,8 +143,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 else // No llegó por un submit, hay que presentar el formulario
 {  		
     print '<div id="container"><center>
+    
     <form action="index.php" method="post">
     <table id="table3">
+    <h2>Aceder Cuenta</h2>
     <tr>
      <td colspan="2" align="center"><h3> LOGIN </h3></td
     </tr>

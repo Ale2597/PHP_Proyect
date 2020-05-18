@@ -57,7 +57,7 @@ session_start();
 <body>
 	<div id="header">
 		<a href="index.html" class="logo">
-			<img src="../images/logo.jpg" alt="">
+        <img src="../images/Logo_icon.png" alt="">
 		</a>
 		<ul id="navigation">
 			<li class="selected">
@@ -78,17 +78,7 @@ session_start();
 		</ul>
 	</div>
 	<div id="body">
-		<div id="featured">
-			<img src="../images/the-beacon.jpg" alt="">
-			<div>
-			    <h2> Welcome User <?php echo $_SESSION['nombre_user']; ?>! </h2>
-				<h2>the beacon to all mankind</h2>
-				<span>Our website templates are created with</span>
-				<span>inspiration, checked for quality and originality</span>
-				<span>and meticulously sliced and coded.</span>
-				<a href="#" class="more">read more</a>
-			</div>
-		</div>
+		
 <!--
 		<ul>
 			<li>
@@ -132,7 +122,7 @@ session_start();
                     <tr>
                         <td align="right"><h3 for="nombre">Nombre de Actividad: </h3></td>
                         <td align="left">
-                        <input type="text" name="nombre_actividad" id="nombre" value="' .$row['actividad'].'" required />
+                        <input style="padding:6px" type="text" name="nombre_actividad" id="nombre" value="' .$row['actividad'].'" required />
                         <span class="error">*</span>
                         </td>
                     </tr>
@@ -140,7 +130,7 @@ session_start();
                     <tr>
                         <td align="right"><h3 for="costo">Costo: </h3></td>
                         <td align="left">
-                        <input type="number" name="costo" id="costo" min="0" value="' .$row['costo'].'" required/> 
+                        <input style="padding:6px" type="number" name="costo" id="costo" min="0" value="' .$row['costo'].'" required/> 
                         <span class="error">*</span>
                         </td>
                     </tr>
@@ -148,7 +138,7 @@ session_start();
                     <tr>
                         <td align="right"><h3 for="fecha_actividad">Fecha de Actividad: </h3></td>
                         <td align="left">
-                        <input type="date" name="fecha_actividad" id="fecha_actividad" value="' .$row['fecha_actividad'].'" />
+                        <input style="padding:6px" type="date" name="fecha_actividad" id="fecha_actividad" value="' .$row['fecha_actividad'].'" />
                         </td>
                     </tr>
                     

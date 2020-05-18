@@ -13,6 +13,30 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/mobile.css" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="../js/mobile.js"></script>
+	<style>
+		.link_a{
+    color: #0ba39c;
+	display: inline-block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	padding: 0 0 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+    }
+    .link_a:hover{
+    color: #1fc3bc;
+	display: inline-block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	padding: 0 0 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+    }
+	</style>
 </head>
 <body>
 <?php 
@@ -52,7 +76,8 @@ session_start();
 				<span>En esta página podrás ver y solicitar</span>
 				<span>distintas becas y ayudas disponibles</span>
 				<span>para fomentar tu dessarrollo educacional.</span>
-				<a href="solicitud_ayuda_economica.php" class="more">Buscar Ahora</a>
+				<br>
+				<a class="link_a" href="solicitud_ayuda_economica.php" class="more">Buscar Ahora</a>
 			</div>
 		</div>
 <!--

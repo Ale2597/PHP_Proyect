@@ -23,7 +23,8 @@ session_start();
 
         #table_header{
             text-align:center;
-            background-color:darkkhaki;
+						background-color:#0ba39c;
+						border-radius:5px;
         }
 
         #table_rows{
@@ -61,9 +62,10 @@ session_start();
 			</li>
 		</ul>
 		
-		<h1>Perfil del Usario</h1>
+		
 	</div>
 	<div id="body">
+
 		
 <!--
 		<ul>
@@ -96,7 +98,8 @@ session_start();
 
             if($r = mysqli_query($dbc, $query))
             {
-                print"<div><center><table id='table1'>";
+								print"<div><center><table id='table1'>";
+								print"<h2>Mi Perfil</h2>";
                 print"<tr id='table_header'>
                         <td><b>Número de Usuario</b></td>
                         <td><b>Email</b></td>
@@ -114,7 +117,8 @@ session_start();
                         <td>$row[pass]</td>
                         <td>$row[tel]</td>
                         <td>$row[status]</td>
-                        <td><a href='editar_usuario.php?user_id={$_SESSION['user_id']}'> <img src='../images/edit_icon.png' width='20' height='20'></a></td>
+												<td ><a href='editar_usuario.php?user_id={$_SESSION['user_id']}'> 
+												<img src='../images/edit_icon.png' width='20' height='20'></a></td>
                         </tr>";
                 }
 

@@ -22,7 +22,7 @@ session_start();
 
         #table_header{
             text-align:center;
-            background-color:darkkhaki;
+            background-color:#0ba39c;
         }
 
         #table_rows{
@@ -37,10 +37,10 @@ session_start();
 <body>
 	<div id="header">
 		<a href="index.html" class="logo">
-			<img src="../images/logo.jpg" alt="">
+		<img src="../images/Logo_icon.PNG" alt="">
 		</a>
 		<ul id="navigation">
-			<li class="selected">
+			<li>
 				<a href="index.php">Home</a>
 			</li>
 			<li>
@@ -49,7 +49,7 @@ session_start();
 			<li>
 				<a href="solicitud_ayuda_economica.php">Solicitar Beca</a>
 			</li>
-			<li>
+			<li class="selected">
 				<a href="solicitudes_usuario.php">Mis Solicitudes</a>
 			</li>
 			<li>
@@ -58,17 +58,7 @@ session_start();
 		</ul>
 	</div>
 	<div id="body">
-		<div id="featured">
-			<img src="../images/the-beacon.jpg" alt="">
-			<div>
-			    <h2> Welcome User <?php echo $_SESSION['nombre_user']; ?>! </h2>
-				<h2>the beacon to all mankind</h2>
-				<span>Our website templates are created with</span>
-				<span>inspiration, checked for quality and originality</span>
-				<span>and meticulously sliced and coded.</span>
-				<a href="#" class="more">read more</a>
-			</div>
-		</div>
+		
 <!--
 		<ul>
 			<li>
@@ -119,9 +109,9 @@ session_start();
                         <td>$row[fecha_actividad]</td>
                         <td>$row[fecha_sol]</td>
                         <td>$row[status]</td>
-                        <td><a href=\"editar_solicitud.php?sol_id={$row['sol_id']}\">
-						<img width='25px' height='25px' alt=\"Edit\" src=\"../images/edit_icon.png\"></a></td>
-						<td><a href=\"eliminar_solicitud.php?sol_id={$row['sol_id']}\">
+                        <td><a class='link_a' href=\"editar_solicitud.php?sol_id={$row['sol_id']}\">
+												<img width='25px' height='25px' alt=\"Edit\" src=\"../images/edit_icon.png\"></a></td>
+												<td><a class='link_a' href=\"eliminar_solicitud.php?sol_id={$row['sol_id']}\">
                         <img width='25px' height='25px' alt=\"Edit\" src=\"../images/close_icon.png\"></a></td>
                         </tr>";
                 }

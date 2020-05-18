@@ -22,7 +22,7 @@ session_start();
 
         #table_header{
             text-align:center;
-            background-color:darkkhaki;
+            background-color:#0ba39c;
         }
 
         #table_rows{
@@ -57,7 +57,7 @@ session_start();
 <body>
 	<div id="header">
 		<a href="index.html" class="logo">
-			<img src="../images/logo.jpg" alt="">
+        <img src="../images/Logo_icon.png" alt="">
 		</a>
 		<ul id="navigation">
 			<li class="selected">
@@ -78,17 +78,7 @@ session_start();
 		</ul>
 	</div>
 	<div id="body">
-		<div id="featured">
-			<img src="../images/the-beacon.jpg" alt="">
-			<div>
-			    <h2> Welcome User <?php echo $_SESSION['nombre_user']; ?>! </h2>
-				<h2>the beacon to all mankind</h2>
-				<span>Our website templates are created with</span>
-				<span>inspiration, checked for quality and originality</span>
-				<span>and meticulously sliced and coded.</span>
-				<a href="#" class="more">read more</a>
-			</div>
-		</div>
+		
 <!--
 		<ul>
 			<li>
@@ -148,7 +138,7 @@ session_start();
 
                 print"</table></center></div><br>";
                 print '<input type="hidden" name="sol_id" value="'.$_GET['sol_id'].'">
-                <input type="submit" name="submit" value="Eliminar Solicitud">';
+                <input class="b1" type="submit" name="submit" value="Eliminar Solicitud">';
                 print"</form>";
                 }            
                 
