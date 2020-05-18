@@ -94,7 +94,8 @@ session_start();
                       FROM (usuarios NATURAL JOIN estudiantes) 
                       JOIN solicitud USING (user_id) 
                       JOIN depto USING (depto_id)
-                      JOIN becas USING (beca_id)";
+                      JOIN becas USING (beca_id)
+                      ORDER BY nombre_beca";
 
             if($r = mysqli_query($dbc, $query))
             {
