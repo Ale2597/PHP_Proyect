@@ -60,8 +60,8 @@ session_start();
                 <img src="../images/Logo_icon.png" alt="">
             </a>
             <ul id="navigation">
-                <li class="selected">
-                    <a href="index.php">Home</a>
+                <li>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li>
                     <a href="perfil_usuario.php">Perfil</a>
@@ -69,17 +69,20 @@ session_start();
                 <li>
                     <a href="solicitud_ayuda_economica.php">Solicitar Beca</a>
                 </li>
-                <li>
+                <li class="selected">
                     <a href="solicitudes_usuario.php">Mis Solicitudes</a>
                 </li>
                 <li>
-                    <a href="creadores.php">Creadores</a>
+                    <a href="creadores_user.php">Creadores</a>
                 </li>
                 <li>
                     <a href="../logout.php">Logout</a>
                 </li>
             </ul>
+            
+            <h1>Editar Solicitud</h1>
         </div>
+        
         <div id="body">
 
             <div>
@@ -132,7 +135,7 @@ session_start();
 
                     <tr>
                         <td align="right"><h3 for="status">Status: </h3></td>
-                        <td align="left"><label for="status"></label>'.$row['status'].'
+                        <td align="left"><label for="status"></label>'.$row['status_sol'].'
                         </td>
                     </tr>
 

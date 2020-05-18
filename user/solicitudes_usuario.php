@@ -41,7 +41,7 @@ session_start();
             </a>
             <ul id="navigation">
                 <li>
-                    <a href="index.php">Home</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li>
                     <a href="perfil_usuario.php">Perfil</a>
@@ -53,7 +53,7 @@ session_start();
                     <a href="solicitudes_usuario.php">Mis Solicitudes</a>
                 </li>
                 <li>
-                    <a href="creadores.php">Creadores</a>
+                    <a href="creadores_user.php">Creadores</a>
                 </li>
                 <li>
                     <a href="../logout.php">Logout</a>
@@ -65,8 +65,8 @@ session_start();
             <div>
                 <?php 
                 $query = "SELECT *
-            FROM solicitud
-            WHERE user_id={$_SESSION['user_id']}";
+                          FROM solicitud
+                          WHERE user_id={$_SESSION['user_id']}";
 
                 if($r = mysqli_query($dbc, $query))
                 {

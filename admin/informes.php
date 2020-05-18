@@ -41,8 +41,8 @@ session_start();
 		<img src="../images/Logo_icon.PNG" alt="">
 		</a>
 		<ul id="navigation">
-			<li class="selected">
-				<a href="index.php">home</a>
+			<li>
+				<a href="index.php">Inicio</a>
 			</li>
 			<li>
 				<a href="solicitantes.php">Solicitantes</a>
@@ -50,11 +50,11 @@ session_start();
 			<li>
 				<a href="becas.php">Becas</a>
 			</li>
-			<li>
+			<li class="selected">
 				<a href="informes.php">Informes</a>
 			</li>
 			<li>
-				<a href="creadores.php">Creadores</a>
+				<a href="creadores_admin.php">Creadores</a>
 			</li>
 			<li>
 				<a href="../logout.php">Logout</a>

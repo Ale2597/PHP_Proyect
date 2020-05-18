@@ -56,7 +56,7 @@ session_start();
                     <a href="solicitudes_usuario.php">Mis Solicitudes</a>
                 </li>
                 <li>
-                    <a href="creadores.php">Creadores</a>
+                    <a href="creadores_user.php">Creadores</a>
                 </li>
                 <li>
                     <a href="../logout.php">Logout</a>

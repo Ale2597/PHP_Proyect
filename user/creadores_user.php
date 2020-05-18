@@ -24,7 +24,7 @@ session_start();
             </a>
             <ul id="navigation">
                 <li>
-                    <a href="index.php">Home</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li>
                     <a href="perfil_usuario.php">Perfil</a>

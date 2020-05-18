@@ -73,7 +73,7 @@ session_start();
                     <a href="informes.php">Informes</a>
                 </li>
                 <li>
-                    <a href="../creadores.php">Creadores</a>
+                    <a href="creadores_admin.php">Creadores</a>
                 </li>
                 <li>
                     <a href="../logout.php">Logout</a>

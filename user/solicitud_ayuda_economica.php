@@ -62,7 +62,7 @@ unset($_SESSION['c_date']);
             </a>
             <ul id="navigation">
                 <li>
-                    <a href="index.php">Home</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li>
                     <a href="perfil_usuario.php">Perfil</a>
@@ -74,7 +74,7 @@ unset($_SESSION['c_date']);
                     <a href="solicitudes_usuario.php">Mis Solicitudes</a>
                 </li>
                 <li>
-                    <a href="creadores.php">Creadores</a>
+                    <a href="creadores_user.php">Creadores</a>
                 </li>
                 <li>
                     <a href="../logout.php">Logout</a>
@@ -120,7 +120,7 @@ unset($_SESSION['c_date']);
             }
             ?>
             <div id="featured">
-                <img src="../images/the-beacon.jpg" alt="">
+                <img src="../images/logo_UPRA.JPEG" alt="">
                 <div style="padding-top:15px">
                     <h2> Welcome User <?php echo $_SESSION['nombre_user']; ?>! </h2>
                     <h2>Becas Disponibles <br>
@@ -184,7 +184,7 @@ unset($_SESSION['c_date']);
 
                 </div>
             </div>
-
+<br><br><br><br><br><br><br><br>
         </div>
         <div id="footer">
             <div>

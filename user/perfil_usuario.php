@@ -55,7 +55,7 @@ session_start();
                     <a href="solicitudes_usuario.php">Mis Solicitudes</a>
                 </li>
                 <li>
-                    <a href="creadores.php">Creadores</a>
+                    <a href="creadores_user.php">Creadores</a>
                 </li>
                 <li>
                     <a href="../logout.php">Logout</a>
@@ -92,8 +92,8 @@ session_start();
                         <td>$row[pass]</td>
                         <td>$row[tel]</td>
                         <td>$row[status]</td>
-												<td ><a href='editar_usuario.php?user_id={$_SESSION['user_id']}'> 
-												<img src='../images/edit_icon.png' width='20' height='20'></a></td>
+                        <td ><a href='editar_usuario.php?user_id={$_SESSION['user_id']}'> 
+						<img src='../images/edit_icon.png' width='20' height='20'></a></td>
                         </tr>";
                 }
 

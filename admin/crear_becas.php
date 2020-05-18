@@ -103,7 +103,7 @@ session_start();
             </a>
             <ul id="navigation">
                 <li>
-                    <a href="index.php">home</a>
+                    <a href="index.php">Inicio</a>
                 </li>
                 <li>
                     <a href="solicitantes.php">Solicitantes</a>
@@ -115,7 +115,7 @@ session_start();
                     <a href="informes.php">Informes</a>
                 </li>
                 <li>
-                    <a href="creadores.php">Creadores</a>
+                    <a href="creadores_admin.php">Creadores</a>
                 </li>
                 <li>
                     <a href="../logout.php">Logout</a>

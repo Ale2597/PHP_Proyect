@@ -50,8 +50,8 @@ function otorgacion(){
 
             //Buscar promedio estudiantes e info becas
             $get_est_beca = "SELECT promedio, tope_beca, balance_beca, promedio_min
-            FROM (usuarios NATURAL JOIN estudiantes) JOIN solicitud USING (user_id) JOIN becas USING (beca_id)
-                            WHERE user_id = {$row_solicitud['user_id']}";//usando el user_id de solicitud
+                             FROM (usuarios NATURAL JOIN estudiantes) JOIN solicitud USING (user_id) JOIN becas USING (beca_id)
+                             WHERE user_id = {$row_solicitud['user_id']}";//usando el user_id de solicitud
 
 
             if($run_est_beca = mysqli_query($dbc, $get_est_beca))
@@ -122,7 +122,7 @@ function otorgacion(){
             // }
 
         }
-        echo "<script>alert('Las Becas han sido otorgadas!')</script>";
+        echo "<script>alert('¡Las Becas han sido otorgadas!')</script>";
         echo "<script>window.open('./index.php','_self')</script>";
     }
    
@@ -146,8 +146,8 @@ function reset_becas(){
         $run_reset_user = mysqli_query($dbc,$reset_user);
 
         if ($run_reset_beca && $run_reset_user) {
-            echo "<script>alert('La otorgación ha sido revocada!')</script>";
-            echo "<script>window.open('./index.php','_self')</script>";
+            echo "<script>alert('¡La otorgación ha sido revocada!')</script>";
+            echo "<script>window.open('./solicitantes.php','_self')</script>";
         }
         else{
             echo "<script>alert('Guachet! NO CORRE!')</script>";
