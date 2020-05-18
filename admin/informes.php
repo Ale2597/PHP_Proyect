@@ -70,7 +70,7 @@ session_start();
 		if($r = mysqli_query($dbc, $query))
 		{
 			print"<div><center><table id='table1'>";
-			print "<h2> Solicitantes Denegados </h2>";
+			print "<h2> Otorgaciones por Beca </h2>";
 			print"<tr id='table_header'>
 					<td><b>Nombre de Beca</b></td>
 					<td><b>Numero de Otorgaciones</b></td>
