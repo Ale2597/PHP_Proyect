@@ -50,7 +50,9 @@ session_start();
 			    <h2>¡Bienvenido al Panel de Administración <?php echo $_SESSION['nombre_admin']; ?> !</h2>
 				<span>Administra las solicitudes, becas,</span>
 				<span>y otorgación de estas. Ademas,</span>
-				<span>crea reportes de estados.</span>
+				<span>crea reportes de estados.</span><br>
+				<button><a href="./ejecutar_otorgacion.php?otorgar=1">Hacer Otorgación</a></button>
+				<button><a href="./ejecutar_otorgacion.php?otorgar=0">Reset</a></button>
 			</div>
 		</div>
 <!--
