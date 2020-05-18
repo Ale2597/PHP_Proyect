@@ -9,9 +9,14 @@ while hayan solicitudes
     if promedio_est >= prom_min (verificar si cumple)
         if balance_beca > 0 (intentar aprobar solicitud)
             if (balance_beca - tope_beca) > 0
-                cant_aprobada = tope_beca
-                balance_beca = balance_beca - tope_beca
-                estatus_solicitud = 'aceptado'
+                if(costo_actividad < tope_beca)
+                    cant_aprobada = costo_actividad
+                    balance_beca = balance_beca - costo_actividad
+                    estatus_solicitud = 'aceptado'
+                else
+                    cant_aprobada = tope_beca
+                    balance_beca = balance_beca - tope_beca
+                    estatus_solicitud = 'aceptado'
             else
                 cant_aprobada = balance_beca
                 estatus_solicitud = 'aceptado'
@@ -24,7 +29,7 @@ while hayan solicitudes
 
 function otorgacion(){
     //Buscar Solicitudes
-    $get_solicitud = "SELECT * FROM solicitud";
+    $get_solicitud = "SELECT * FROM solicitud ORDER BY fecha_sol";
 
     $run_solicitud = mysqli_query($dbc, $get_solicitud);
 
@@ -68,10 +73,18 @@ function otorgacion(){
             {
                 if(($balance_beca - $tope_beca) > 0)//verificar si hay suficiente para otorgar la cantidad del tope
                 {
-                    $cantidad_aprobada = $tope_beca;
-                    $balance_beca = $balance_beca - $tope_beca;
-                    $estatus_solicitud = 'Aceptado';
-
+                    if($costo_actividad < $tope_beca)//verificar si el costo de actividad es menor que el maximo por beca
+                    {
+                        $cantidad_aprobada = $costo_actividad;
+                        $balance_beca = $balance_beca - $costo_actividad;
+                        $estatus_solicitud = 'Aceptado';
+                    }
+                    else//aceptado con el maximo por beca
+                    {
+                        $cantidad_aprobada = $tope_beca;
+                        $balance_beca = $balance_beca - $tope_beca;
+                        $estatus_solicitud = 'Aceptado';
+                    }
                 }
                 else//aceptado, pero hay menos balance que el tope
                 {
