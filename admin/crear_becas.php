@@ -96,43 +96,7 @@ session_start();
 	</style>
 </head>
 <body>
-<?php   
-        $mostrar = 3;
-        $id = $_SESSION['admin_id'];
-        if (isset($_GET['p']))
-            $pags = $_GET['p'];
-        else 
-        {
-            //determinar total páginas requeridas para presentar todos los récords
-            $q2 = "SELECT COUNT(beca_id) t FROM becas WHERE balance_beca>0";
-            $r2 = mysqli_query($dbc, $q2);
 
-            $row2 = mysqli_fetch_array($r2);
-            $records = $row2['t'];//total de récords que trae el query
-            if ($records > $mostrar)
-                $pags = ceil ($records/$mostrar);
-            else
-                $pags = 1;
-                    
-        }
-        if (isset($_GET['s']))
-            $start = $_GET['s'];
-        else
-            $start = 0;
-            
-        if (isset($_GET['orden']))
-            $orden=$_GET['orden'];
-        else
-            $orden='b';
-                
-            switch($orden)
-            {
-                case 'b':   $order_by = 'balance_beca DESC';
-                            break;
-
-                default:    $order_by = 'tope_beca DESC';
-            }
-        ?>
 	<div id="header">
 		<a href="index.html" class="logo">
 			<img src="../images/Logo_icon.png" alt="">
@@ -164,63 +128,17 @@ session_start();
 			<img src="../images/logo_UPRA.JPEG" alt="">
 			<div>
 			    
-					<h2>Becas Disponibles <br><a class='head_b' href="crear_becas.php">Crear Becas</a>
+					<h2>Entrar Beca Nueva <br>
 				<table>
 				<?php 
-				  $m_query = "SELECT * 
-                              FROM becas 
-                              WHERE balance_beca>0
-                              ORDER BY $order_by LIMIT $start, $mostrar"; 
-					$Mq = mysqli_query($dbc,$m_query);
-					if(mysqli_num_rows($Mq) == 0){
-								echo "NO hay ninguna beca disponible ;-;";
-									//header("insertar_user.php");
-					} 
-					else{
-							while($row = mysqli_fetch_array($Mq)){
-										print "<tr>
-													 <td align='left' class='head_a'><br>BECA |".$row['nombre_beca']."| </td>
-													 <td style='padding-top:26px'><a class=\"aE\" href=\"editar_beca.php?beca_id=".$row['beca_id']."\">Editar</a></td>
-                        	 <td style='padding-top:26px'><a class=\"aB\" href=\"eliminar_beca.php?beca_id=".$row['beca_id']."\">Borrar</a></td>
-													 </tr>
-													 ";
-							}
-					} 
+				  
                     
                     
                     
 		
 				?>
 				</table></h2>
-                <?php mysqli_close($dbc);
-                if ($pags > 1)
-                {
-                    echo "<br /><p>";
-
-                    $pag_mostrada = ($start / $mostrar) + 1;
-                    //si no es la primera página crear enlace a página anterior
-                    if ($pag_mostrada != 1)
-                    {
-                        echo '<a class="link_a" href="becas.php?s='.($start - $mostrar).
-                             '&p='.$pags .  '&orden='.$orden.'&id='.$id.'">anterior</a> ';
-                    }
-                    //mostrar los números de página
-                    for ($k = 1; $k <= $pags; $k++)
-                    {
-                        if ($k != $pag_mostrada)
-                        {
-                            echo '<a class="link_a" href="becas.php?s='.($mostrar *($k-1)).'&p='. $pags . '&orden='.$orden.'&id='.$id.'">'.$k . '</a> ';
-                        }
-                        else
-                            echo ' '.$k.' ';
-                    }
-                     //  si no es la última página presentar próximo enlace
-                    if ($pag_mostrada != $pags )
-                    {
-                        echo '<a class="link_a" href="becas.php?s='. ($start + $mostrar) . '&p='.$pags.'&orden='.$orden.'&id='.$id.'"> próximo</a> ';
-                    }
-                     echo "</p>";                                                   
-                }        
+                <?php     
                 
                 ?>
 				
