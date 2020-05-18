@@ -1,20 +1,20 @@
 <?php 
 
-    //Intento de coneccion a servidor de base de datos.
+//Intento de coneccion a servidor de base de datos.
 
 //    $host = '136.145.29.193';
-    $host = 'localhost';
+$host = 'localhost';
 //    $username = 'hirverme';
-    $username = 'root';
+$username = 'root';
 //    $password = 'hirverme840$cuta';
-    $password = '';
+$password = '';
 //    $db = 'hirverme_db';
 //    $db = 'programahonor';
-    $db = 'becasphp_final';
-            
-    $dbc = @mysqli_connect($host, $username, $password, $db)
-            OR die('No se pudo conectar a MySQL: '.mysqli_connect_error());
+$db = 'becasphp_final';
 
-    mysqli_set_charset($dbc, 'utf8');
+$dbc = @mysqli_connect($host, $username, $password, $db)
+    OR die('No se pudo conectar a MySQL: '.mysqli_connect_error());
+
+mysqli_set_charset($dbc, 'utf8');
 
 ?>
