@@ -141,12 +141,12 @@ function reset_becas(){
         $run_reset_beca = mysqli_query($dbc,$reset_beca);
 
         //Reset info de otorgacion estudiante
-        $reset_user = "UPDATE solicitud SET cantidad_aprobada=NULL, status='pendiente'";
+        $reset_user = "UPDATE solicitud SET cantidad_aprobada='0', status_sol='Pendiente'";
 
         $run_reset_user = mysqli_query($dbc,$reset_user);
 
         if ($run_reset_beca && $run_reset_user) {
-            echo "<script>alert('La otorgación ha sido reversida!')</script>";
+            echo "<script>alert('La otorgación ha sido revocada!')</script>";
             echo "<script>window.open('./index.php','_self')</script>";
         }
         else{

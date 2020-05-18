@@ -1,6 +1,7 @@
 <!doctype html>
 <!-- Website Template by freewebsitetemplates.com -->
 <?php 
+include('../conectiondb.php');
 //Empezar Sesion.
 session_start();
 ?>
@@ -40,37 +41,94 @@ session_start();
 		</ul>
 	</div>
 	<div id="body">
-		<div id="featured">
-			<img src="../images/the-beacon.jpg" alt="">
-			<div>
-			    <h2> Welcome Admin <?php echo $_SESSION['nombre_admin']; ?>! </h2>
-				<h2>the beacon to all mankind</h2>
-				<span>Our website templates are created with</span>
-				<span>inspiration, checked for quality and originality</span>
-				<span>and meticulously sliced and coded.</span>
-				<a href="#" class="more">read more</a>
-			</div>
-		</div>
-		<ul>
-			<li>
-				<a href="#">
-					<img src="../images/the-father.jpg" alt="">
-					<span>Gabriel Ferrer</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<img src="../images/the-actor.jpg" alt="">
-					<span>Hiram Vera</span>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<img src="../images/the-nerd.jpg" alt="">
-					<span>Alejandro Zeno</span>
-				</a>
-			</li>
-		</ul>
+	<?php
+		//Tabla de Otorgaciones por Beca
+		$query = "SELECT nombre_beca, COUNT(sol_id) AS otorgaciones, SUM(cantidad_aprobada) AS cantidad_otorgada
+		FROM becas NATURAL JOIN solicitud";
+
+		if($r = mysqli_query($dbc, $query))
+		{
+			print"<div><center><table id='table1'>";
+			print "<h2> Solicitantes Denegados </h2>";
+			print"<tr id='table_header'>
+					<td><b>Nombre de Beca</b></td>
+					<td><b>Numero de Otorgaciones</b></td>
+					<td><b>Cantidad Otorgada</b></td>
+					</tr>";
+
+			while($row=mysqli_fetch_array($r))
+			{
+				print"<tr id='table_rows'>
+					<td>$row[nombre_beca]</td>
+					<td>$row[otorgaciones]</td>
+					<td>$row[cantidad_otorgada]</td>
+					</tr>";
+			}
+
+			print"</table></center></div><br>";
+		}
+
+		//Tabla de Solicitantes Denegados
+		$query2 = "SELECT nombre, apellido1, apellido2, email, promedio, nombre_depto, fecha_sol
+		FROM solicitud NATURAL JOIN usuarios NATURAL JOIN estudiantes NATURAL JOIN depto
+		WHERE status_sol = 'Denegado'";
+
+		if($r = mysqli_query($dbc, $query2))
+		{
+			print"<div><center><table id='table1'>";
+			print "<h2> Solicitantes Denegados </h2>";
+			print"<tr id='table_header'>
+					<td><b>Nombre de Estudiante</b></td>
+					<td><b>Email</b></td>
+					<td><b>Promedio</b></td>
+					<td><b>Departamento</b></td>
+					<td><b>Fecha de Solicitud</b></td>
+					</tr>";
+
+			while($row=mysqli_fetch_array($r))
+			{
+				print"<tr id='table_rows'>
+					<td>$row[nombre] $row[apellido1] $row[apellido2]</td>
+					<td>$row[email]</td>
+					<td>$row[promedio]</td>
+					<td>$row[nombre_depto]</td>
+					<td>$row[fecha_sol]</td>
+					</tr>";
+			}
+
+			print"</table></center></div><br>";
+		}
+
+		//Tabla de Balance por Beca
+		$query3 = "SELECT nombre_beca, nombre_depto, fondo_beca, SUM(cantidad_aprobada) AS cantidad_otorgada, balance_beca
+		FROM becas LEFT OUTER JOIN (depto NATURAL JOIN becas_departamento NATURAL JOIN solicitud) USING (beca_id)";
+
+		if($r = mysqli_query($dbc, $query3))
+		{
+			print"<div><center><table id='table1'>";
+			print "<h2> Balance por Beca </h2>";
+			print"<tr id='table_header'>
+					<td><b>Nombre de Beca</b></td>
+					<td><b>Departamento</b></td>
+					<td><b>Cantidad Inicial</b></td>
+					<td><b>Cantidad Otorgada</b></td>
+					<td><b>Balance</b></td>
+					</tr>";
+
+			while($row=mysqli_fetch_array($r))
+			{
+				print"<tr id='table_rows'>
+					<td>$row[nombre_beca]</td>
+					<td>$row[nombre_depto]</td>
+					<td>$row[fondo_beca]</td>
+					<td>$row[cantidad_otorgada]</td>
+					<td>$row[balance_beca]</td>
+					</tr>";
+			}
+
+			print"</table></center></div><br>";
+		}
+        ?>
 	</div>
 	<div id="footer">
 		<div>

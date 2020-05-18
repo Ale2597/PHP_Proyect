@@ -94,6 +94,10 @@ session_start();
                 }
 
                 print"</table></center></div><br>";
+
+                // print '<button><a href="./ejecutar_otorgacion.php?otorgar=1">Hacer Otorgación</a></button>';
+				print '<button><a href="./version2.php">Hacer Otorgación</a></button>';
+				print '<button><a href="./ejecutar_otorgacion.php?otorgar=0">Reset</a></button>';
             }
             ?>
         </div>
