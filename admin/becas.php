@@ -16,23 +16,24 @@ session_start();
 
         <style>
             #table1{
-                background-color: azure;
-                border-bottom: collapse;
-                width: auto;
-            }
+            background-color: azure;
+            border-bottom: collapse;
+            width: auto;
+        }
 
-            #table_header{
-                text-align:center;
-                background-color:darkkhaki;
-            }
+        #table_header{
+            text-align:center;
+						background-color:#0ba39c;
+						border-radius:5px;
+        }
 
-            #table_rows{
-                text-align:center;
-            }
-            td{
-                width: 300px;
-                height: 50px;
-            }
+        #table_rows{
+            text-align:center;
+        }
+        td{
+            width: 300px;
+            height: 50px;
+        }
             .aE{
 
                 color: #00FF40;
