@@ -13,11 +13,32 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/mobile.css" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="../js/mobile.js"></script>
+	<style>
+        #table1{
+            background-color: azure;
+            border-bottom: collapse;
+            width: auto;
+        }
+
+        #table_header{
+            text-align:center;
+						background-color:#0ba39c;
+						border-radius:5px;
+        }
+
+        #table_rows{
+            text-align:center;
+        }
+        td{
+            width: 300px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
 	<div id="header">
 		<a href="index.html" class="logo">
-			<img src="../images/logo.jpg" alt="">
+		<img src="../images/Logo_icon.PNG" alt="">
 		</a>
 		<ul id="navigation">
 			<li class="selected">

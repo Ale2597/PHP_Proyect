@@ -15,25 +15,26 @@ session_start();
         <script type="text/javascript" src="../js/mobile.js"></script>
 
         <style>
-            #table1{
-                background-color: azure;
-                border-bottom: collapse;
-                width: auto;
-            }
+        #table1{
+            background-color: azure;
+            border-bottom: collapse;
+            width: auto;
+        }
 
-            #table_header{
-                text-align:center;
-                background-color:darkkhaki;
-            }
+        #table_header{
+            text-align:center;
+						background-color:#0ba39c;
+						border-radius:5px;
+        }
 
-            #table_rows{
-                text-align:center;
-            }
-            td{
-                width: 300px;
-                height: 50px;
-            }
-        </style>
+        #table_rows{
+            text-align:center;
+        }
+        td{
+            width: 300px;
+            height: 50px;
+        }
+    </style>
     </head>
     <body>
         <div id="header">
